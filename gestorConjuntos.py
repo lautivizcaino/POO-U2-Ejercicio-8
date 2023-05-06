@@ -29,11 +29,15 @@ class GestorConjuntos:
     def union(self,c1,c2):
         nuevoConjunto=c1+c2
         print(nuevoConjunto)
-    def diferencia(self):
-        pass
-    def verificar(self):
-        pass
-    def __str__(self) -> str:
+    def diferencia(self,c1,c2):
+        nuevoConjunto=c1-c2
+        print(nuevoConjunto)
+    def verificar(self,c1,c2):
+        if c1==c2:
+            print('Los conjuntos son iguales')
+        else:
+            print('Los conjuntos no son iguales')
+    def __str__(self):
         s=''
         i=1
         for conj in self.__listaConjuntos:

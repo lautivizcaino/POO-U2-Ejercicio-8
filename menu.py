@@ -20,8 +20,18 @@ class Menu:
                 lista.union(conjunto1,conjunto2)
             if self.__opcion==2:
                 print('\nPUNTO 2\n')
+                print(lista)
+                print('\nSeleccione dos conjuntos\n')
+                conjunto1=lista.obtenerConjunto(int(input('Conjunto 1: ')))
+                conjunto2=lista.obtenerConjunto(int(input('Conjunto 2: ')))
+                lista.diferencia(conjunto1,conjunto2)
             if self.__opcion==3:
                 print('\nPUNTO 3\n')
+                print(lista)
+                print('\nSeleccione dos conjuntos\n')
+                conjunto1=lista.obtenerConjunto(int(input('Conjunto 1: ')))
+                conjunto2=lista.obtenerConjunto(int(input('Conjunto 2: ')))
+                lista.verificar(conjunto1,conjunto2)
         
         else:
             print('Ha salido del sistema')

@@ -4,21 +4,43 @@ class Conjunto:
         self.__elementos=[]
     def agregarElemento(self,elemento):
         self.__elementos.append(elemento)
+    def eliminarEl(self,elemento):
+        self.__elementos.remove(elemento)
+    def obtenerConjunto(self):
+        return self.__elementos
     def __add__(self,otro):
-        b=True
         nuevoConjunto=Conjunto()
+        for el in self.__elementos:
+            nuevoConjunto.agregarElemento(el)
         for elem in otro.__elementos:
-            for k in self.__elementos:
-                if elem==k:
-                    b=False
-            if b==True:
-                nuevoConjunto.agregarElemento(k)
-        return  
+            if elem not in self.__elementos:
+                nuevoConjunto.agregarElemento(elem)
+                
+        return  nuevoConjunto
 
-    def __sub__(self):
-        pass
-    def __eq__(self):
-        pass
+    def __sub__(self,otro):
+        nuevoConjunto=Conjunto()
+        for el in self.__elementos:
+            nuevoConjunto.agregarElemento(el)
+        for elem in otro.__elementos:
+            if elem in nuevoConjunto.obtenerConjunto():
+                nuevoConjunto.eliminarEl(elem)
+        return  nuevoConjunto
+    
+    def __eq__(self,otro):
+        iguales=True
+        if len(self.__elementos)==len(otro.__elementos):
+            for elem in self.__elementos:
+                if elem not in otro.__elementos:
+                    iguales=False
+            for elem in otro.__elementos:
+                if elem not in self.__elementos:
+                    iguales=False
+        else:
+            iguales=False
+        return iguales
+                
+        
     def __str__(self):
         s='{'
         i=0
